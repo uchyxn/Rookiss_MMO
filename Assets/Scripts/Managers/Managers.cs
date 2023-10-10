@@ -3,21 +3,21 @@ using UnityEngine;
 public class Managers : MonoBehaviour
 {
     static Managers s_instance;
-    public static Managers Instance { get { Init(); return s_instance; } }
+    static Managers Instance { get { Init(); return s_instance; } }
 
+    InputManager _input = new InputManager();
+    public static InputManager Input { get { return Instance._input; } }
 
     // Start is called before the first frame update
     void Start()
     {
         Init();
-
-        //Instance = this; //@Manager가 여럿 있다면 계속해서 덮어씌워진다.
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        _input.OnUpdate();
     }
 
     static void Init()
