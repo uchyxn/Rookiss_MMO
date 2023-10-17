@@ -2,15 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+class Tank
+{
+    public float speed = 10.0f;
+}
+
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    float _speed = 100.0f;
+    float _speed = 10.0f;
     void Start()
     {
         Managers.Input.KeyAction -= OnKeyboard;
         Managers.Input.KeyAction += OnKeyboard;
+
+        Tank tank1 = new Tank(); // Instance를 만든다.
     }
 
     void OnKeyboard()
